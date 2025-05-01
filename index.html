@@ -77,6 +77,56 @@
       0% { background-color: yellow; color: red; }
       100% { background-color: red; color: yellow; }
     }
+
+    .explosion {
+      position: absolute;
+      width: 200px;
+      animation: explode 1s ease-in-out forwards;
+    }
+
+    @keyframes explode {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.5); opacity: 1; }
+      100% { transform: scale(0); opacity: 0; }
+    }
+
+    .trex {
+      position: absolute;
+      width: 300px;
+      left: -400px;
+      animation: trexIn 5s linear infinite;
+    }
+
+    @keyframes trexIn {
+      0% { left: -400px; transform: rotate(0deg); }
+      50% { left: 50%; transform: rotate(5deg); }
+      100% { left: 120%; transform: rotate(-5deg); }
+    }
+
+    @keyframes shake {
+      0% { transform: translate(0px, 0px); }
+      25% { transform: translate(5px, -5px); }
+      50% { transform: translate(-5px, 5px); }
+      75% { transform: translate(5px, 5px); }
+      100% { transform: translate(0px, 0px); }
+    }
+
+    .willsmith {
+      position: absolute;
+      width: 200px;
+      top: 40%;
+      left: 40%;
+      opacity: 0;
+      animation: fadeInSpin 4s ease-in-out infinite;
+    }
+
+    @keyframes fadeInSpin {
+      0% { opacity: 0; transform: rotate(0deg); }
+      25% { opacity: 1; transform: rotate(90deg); }
+      50% { opacity: 1; transform: rotate(180deg); }
+      75% { opacity: 1; transform: rotate(270deg); }
+      100% { opacity: 0; transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -88,6 +138,10 @@
   <img class="chaotic" src="https://media.giphy.com/media/fAnEC88LccN7a/giphy.gif" style="top:70%; left:30%;">
   <img class="chaotic" src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" style="top:20%; left:60%;">
   <img class="chaotic" src="https://media.giphy.com/media/xT0xeuOy2Fcl9vDGiA/giphy.gif" style="top:50%; left:80%;">
+  <img class="trex" src="https://media.giphy.com/media/3o6Zt6ML6BklcajjsA/giphy.gif" style="top:30%; animation-delay: 2s;">
+  <img class="trex" src="https://media.giphy.com/media/3oEduQAsYcJKQH2XsI/giphy.gif" style="top:60%; animation-delay: 4s;">
+
+  <img class="willsmith" id="willsmith" src="WillSmith.jpg">
 
   <audio id="memeSound" loop>
     <source src="vine-boom-sound-effect(chosic.com).mp3" type="audio/mpeg">
@@ -124,6 +178,16 @@
         const randomIndex = Math.floor(Math.random() * messages.length);
         alert(messages[randomIndex]);
       }, 10000);
+
+      setInterval(() => {
+        const explosion = document.createElement('img');
+        explosion.src = 'https://media.giphy.com/media/oe33xf3B50fsc/giphy.gif';
+        explosion.className = 'explosion';
+        explosion.style.top = Math.random() * 80 + '%';
+        explosion.style.left = Math.random() * 80 + '%';
+        document.body.appendChild(explosion);
+        setTimeout(() => explosion.remove(), 1000);
+      }, 3000);
     }
   </script>
 </body>
