@@ -82,6 +82,7 @@
       position: absolute;
       width: 200px;
       animation: explode 1s ease-in-out forwards;
+      z-index: 9999;
     }
 
     @keyframes explode {
@@ -140,8 +141,9 @@
   <img class="chaotic" src="https://media.giphy.com/media/xT0xeuOy2Fcl9vDGiA/giphy.gif" style="top:50%; left:80%;">
   <img class="trex" src="https://media.giphy.com/media/3o6Zt6ML6BklcajjsA/giphy.gif" style="top:30%; animation-delay: 2s;">
   <img class="trex" src="https://media.giphy.com/media/3oEduQAsYcJKQH2XsI/giphy.gif" style="top:60%; animation-delay: 4s;">
-
-  <img class="willsmith" id="willsmith" src="WillSmith.png">
+  
+  <!-- Will Smith image that will appear dynamically -->
+  <img class="willsmith" id="willsmith" src="https://upload.wikimedia.org/wikipedia/commons/3/30/Will_Smith_2012.jpg">
 
   <audio id="memeSound" loop>
     <source src="vine-boom-sound-effect(chosic.com).mp3" type="audio/mpeg">
@@ -188,6 +190,10 @@
         document.body.appendChild(explosion);
         setTimeout(() => explosion.remove(), 1000);
       }, 3000);
+
+      // Make Will Smith appear
+      const willSmith = document.getElementById('willsmith');
+      willSmith.style.opacity = 1; // Make Will Smith appear
     }
   </script>
 </body>
