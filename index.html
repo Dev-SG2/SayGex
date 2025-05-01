@@ -46,35 +46,52 @@
       0% { transform: translate(-50%, -50%) rotate(0deg); }
       100% { transform: translate(-50%, -50%) rotate(360deg); }
     }
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 20px;
+      font-size: 24px;
+      background-color: yellow;
+      color: red;
+      border: 5px solid magenta;
+      text-shadow: 1px 1px black;
+      cursor: pointer;
+      animation: flashBtn 0.4s infinite alternate;
+    }
+    @keyframes flashBtn {
+      from { background-color: yellow; }
+      to { background-color: red; color: yellow; }
+    }
   </style>
 </head>
-<body onload="playMeme()">
+<body>
   <div class="marquee"><span>🔥🔥 WELCOME TO SAYGEX 🔥🔥 YOU WON A FREE iPHONE 🔥🔥</span></div>
   <h1 align="center">WELCOME TO HELL</h1>
+  <button onclick="playMeme()">🔥 Start the Madness 🔥</button>
   <img src="https://i.kym-cdn.com/photos/images/original/001/402/315/b04.gif" width="300" />
-  <audio id="memeSound" autoplay loop>
+  <audio id="memeSound" loop>
     <source src="https://www.chosic.com/wp-content/uploads/2023/06/vine-boom-sound-effect(chosic.com).mp3" type="audio/mpeg">
   </audio>
+
   <script>
-   function playMeme() {
-  const audio = document.getElementById('memeSound');
-  audio.volume = 1.0;
- 
-audio.play().catch((e) => {
-    console.warn("Autoplay blocked:", e);
-  });
-  const messages = [
-    "🔥🔥 HOT SINGLE CLICKS IN YOUR AREA 🔥🔥",
-    "🔥🔥 SUBMISSIVE RUSSIAN LADIES IN YOUR AREA 🔥🔥",
-    "🔥🔥 SEXY TWINKS DOWN TO GET NAUGHTY 🔥🔥"
-  ];
+    function playMeme() {
+      const audio = document.getElementById('memeSound');
+      audio.volume = 1.0;
+      audio.play().catch((e) => {
+        console.warn("Autoplay blocked:", e);
+      });
 
-  setInterval(() => {
-    const randomIndex = Math.floor(Math.random() * messages.length);
-    alert(messages[randomIndex]);
-  }, 8000);
-}
+      const messages = [
+        "🔥🔥 HOT SINGLE CLICKS IN YOUR AREA 🔥🔥",
+        "🔥🔥 SUBMISSIVE RUSSIAN LADIES IN YOUR AREA 🔥🔥",
+        "🔥🔥 SEXY TWINKS DOWN TO GET NAUGHTY 🔥🔥"
+      ];
 
+      setInterval(() => {
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        alert(messages[randomIndex]);
+      }, 8000);
+    }
   </script>
 </body>
 </html>
