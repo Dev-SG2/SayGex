@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Saygex</title>
+  <title>Saygex EXTREME</title>
   <style>
     body {
-      background: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdTUwc2o5MGhvcDR4dzA3cmZmYXRncWp4aGIzOHNmNHh1aWwwdnRjYyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/LbwJp26pqGf0k/giphy.gif') repeat;
-      font-family: Comic Sans MS, cursive, sans-serif;
+      font-family: Papyrus, Comic Sans MS, cursive, sans-serif;
       color: lime;
-      text-shadow: 2px 2px red;
-      animation: flashBg 0.5s infinite alternate;
+      text-shadow: 3px 3px red, -3px -3px blue;
+      animation: flashBg 0.3s infinite alternate;
+      overflow: hidden;
     }
+
     @keyframes flashBg {
-      from { background-color: magenta; }
-      to { background-color: cyan; }
+      0% { background: url('https://media.giphy.com/media/LbwJp26pqGf0k/giphy.gif') repeat; }
+      25% { background: url('https://media.giphy.com/media/26BRq7Rz8P9BTi1yY/giphy.gif') repeat; }
+      50% { background: url('https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif') repeat; }
+      75% { background: url('https://media.giphy.com/media/l3q2K5jinAlChoCLS/giphy.gif') repeat; }
+      100% { background: url('https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif') repeat; }
     }
+
     .marquee {
       width: 100%;
       background: yellow;
@@ -25,79 +30,100 @@
       white-space: nowrap;
       overflow: hidden;
       z-index: 9999;
+      font-size: 24px;
     }
+
     .marquee span {
       display: inline-block;
       padding-left: 100%;
-      animation: marquee 10s linear infinite;
+      animation: marquee 5s linear infinite;
     }
+
     @keyframes marquee {
       0% { transform: translate(0, 0); }
       100% { transform: translate(-100%, 0); }
     }
-    img {
+
+    img.chaotic {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(360deg);
-      animation: spin 2s linear infinite;
+      width: 150px;
+      animation: spin 2s linear infinite, bounce 1s infinite alternate;
     }
+
     @keyframes spin {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
+
+    @keyframes bounce {
+      0% { top: 0%; left: 0%; }
+      100% { top: 80%; left: 80%; }
+    }
+
     button {
       display: block;
       margin: 20px auto;
       padding: 20px;
-      font-size: 24px;
+      font-size: 36px;
       background-color: yellow;
       color: red;
-      border: 5px solid magenta;
-      text-shadow: 1px 1px black;
+      border: 10px dashed magenta;
+      text-shadow: 2px 2px black;
       cursor: pointer;
-      animation: flashBtn 0.4s infinite alternate;
+      animation: flashBtn 0.2s infinite alternate;
     }
+
     @keyframes flashBtn {
-      from { background-color: yellow; }
-      to { background-color: red; color: yellow; }
+      0% { background-color: yellow; color: red; }
+      100% { background-color: red; color: yellow; }
     }
   </style>
 </head>
 <body>
-  <div class="marquee"><span>🔥🔥 WELCOME TO SAYGEX 🔥🔥 YOU WON A FREE iPHONE 🔥🔥</span></div>
-  <h1 align="center">WELCOME TO HELL</h1>
-  <button onclick="playMeme()">🔥 Start the Madness 🔥</button>
-  <img src="https://i.kym-cdn.com/photos/images/original/001/402/315/b04.gif" width="300" />
+  <div class="marquee"><span>💀 WELCOME TO SAYGEX HELL DIMENSION 💀 FREE IPHONES AND EXISTENTIAL DREAD 💀</span></div>
+  <h1 align="center">⚡⚠️ WELCOME TO CHAOS REALM ⚠️⚡</h1>
+  <button onclick="playMeme()">💥 UNLEASH THE CHAOS 💥</button>
+
+  <img class="chaotic" src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" style="top:10%; left:10%;">
+  <img class="chaotic" src="https://media.giphy.com/media/fAnEC88LccN7a/giphy.gif" style="top:70%; left:30%;">
+  <img class="chaotic" src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" style="top:20%; left:60%;">
+  <img class="chaotic" src="https://media.giphy.com/media/xT0xeuOy2Fcl9vDGiA/giphy.gif" style="top:50%; left:80%;">
+
   <audio id="memeSound" loop>
-   
     <source src="vine-boom-sound-effect(chosic.com).mp3" type="audio/mpeg">
   </audio>
   <audio id="emotionaldamage" loop>
-     <source src="emotionaldamage.mp3" type="audio/mpeg">
+    <source src="emotionaldamage.mp3" type="audio/mpeg">
   </audio>
+  <audio id="screaming" loop>
+    <source src="wilhelm.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="airhorn" loop>
+    <source src="airhorn.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
     function playMeme() {
-      const audio = document.getElementById('memeSound');
-      audio.volume = 1.0;
-      audio.play().catch((e) => {
-        console.warn("Autoplay blocked:", e);
+      const ids = ['memeSound', 'emotionaldamage', 'screaming', 'airhorn'];
+      ids.forEach(id => {
+        const audio = document.getElementById(id);
+        audio.volume = 1.0;
+        audio.play().catch((e) => console.warn("Autoplay blocked:", e));
       });
-   const audio2 = document.getElementById('emotionaldamage');
-      audio2.volume = 1.0;
-      audio2.play().catch((e) => {
-        console.warn("Autoplay blocked:", e);
-      });
+
       const messages = [
-        "🔥🔥 HOT SINGLE CLICKS IN YOUR AREA 🔥🔥",
-        "🔥🔥 SUBMISSIVE RUSSIAN LADIES IN YOUR AREA 🔥🔥",
-        "🔥🔥 SEXY TWINKS DOWN TO GET NAUGHTY 🔥🔥"
+        "🔥 CLICK NOW OR SUFFER 🔥",
+        "👀 YOU'RE BEING WATCHED 👀",
+        "😱 THE GIFS ARE ALIVE 😱",
+        "🚨 HOT PIXEL MADNESS NEARBY 🚨",
+        "🧠 BRAIN CELLS MELTING 🧠",
+        "🦴 BONES? NEVER HEARD OF THEM 🦴"
       ];
 
       setInterval(() => {
         const randomIndex = Math.floor(Math.random() * messages.length);
         alert(messages[randomIndex]);
-      }, 20000);
+      }, 10000);
     }
   </script>
 </body>
