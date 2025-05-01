@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Saygex</title>
+  <style>
+    body {
+      background: url('https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif') repeat;
+      font-family: Comic Sans MS, cursive, sans-serif;
+      color: lime;
+      text-shadow: 2px 2px red;
+      animation: flashBg 0.5s infinite alternate;
+    }
+    @keyframes flashBg {
+      from { background-color: magenta; }
+      to { background-color: cyan; }
+    }
+    .marquee {
+      width: 100%;
+      background: yellow;
+      color: red;
+      font-weight: bold;
+      position: fixed;
+      top: 0;
+      left: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      z-index: 9999;
+    }
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 10s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(360deg);
+      animation: spin 2s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+  </style>
+</head>
+<body onload="playMeme()">
+  <div class="marquee"><span>🔥🔥 WELCOME TO SAYGEX 🔥🔥 YOU WON A FREE iPHONE 🔥🔥</span></div>
+  <h1 align="center">WELCOME TO HELL</h1>
+  <img src="https://i.kym-cdn.com/photos/images/original/001/402/315/b04.gif" width="300" />
+  <audio id="memeSound" autoplay loop>
+    <source src="https://www.myinstants.com/media/sounds/vine-boom.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    function playMeme() {
+      const audio = document.getElementById('memeSound');
+      audio.volume = 1.0;
+      audio.play();
+      setInterval(() => {
+        alert("🔥🔥 HOT SINGLE CLICKS IN YOUR AREA 🔥🔥");
+      }, 8000);
+    }
+  </script>
+</body>
+</html>
