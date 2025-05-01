@@ -70,9 +70,12 @@
   <button onclick="playMeme()">🔥 Start the Madness 🔥</button>
   <img src="https://i.kym-cdn.com/photos/images/original/001/402/315/b04.gif" width="300" />
   <audio id="memeSound" loop>
+   
     <source src="vine-boom-sound-effect(chosic.com).mp3" type="audio/mpeg">
   </audio>
-
+  <audio id="emotionaldamage" loop>
+     <source src="emotionaldamage.mp3" type="audio/mpeg">
+  </audio>
   <script>
     function playMeme() {
       const audio = document.getElementById('memeSound');
@@ -80,7 +83,11 @@
       audio.play().catch((e) => {
         console.warn("Autoplay blocked:", e);
       });
-
+   const audio2 = document.getElementById('emotionaldamage');
+      audio.volume = 1.0;
+      audio.play().catch((e) => {
+        console.warn("Autoplay blocked:", e);
+      });
       const messages = [
         "🔥🔥 HOT SINGLE CLICKS IN YOUR AREA 🔥🔥",
         "🔥🔥 SUBMISSIVE RUSSIAN LADIES IN YOUR AREA 🔥🔥",
@@ -90,7 +97,7 @@
       setInterval(() => {
         const randomIndex = Math.floor(Math.random() * messages.length);
         alert(messages[randomIndex]);
-      }, 8000);
+      }, 20000);
     }
   </script>
 </body>
